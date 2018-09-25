@@ -19,6 +19,14 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+@app.route('/weight/<idx>', methods=['GET'])
+def get_weight(idx):
+    buffer = []
+    f = open('weights/'+str(idx)+'.txt', 'r')
+    for line in f:
+        buffer.append(float(line.rstrip()))
+    return jsonify(buffer)
+
 @app.route('/adduser', methods=['GET', 'POST'])
 def upload_image():
     # Check if a valid image file was uploaded
@@ -39,28 +47,29 @@ def upload_image():
     return '''
     <!doctype html>
     <title>Is this a picture of Obama?</title>
-    <h1>Upload a picture and see if it's a picture of Obama!</h1>
+    <h1>Cadastrar Usuario</h1>
     <form method="POST" enctype="multipart/form-data">
-    <labe>Imagem</label>
-    <input type="file" name="file">
     <labe>Nome</label>
-    <input type="text" name="nome">
+    <input type="text" name="nome"></br>
+    <labe>Imagem</label>
+    <input type="file" name="file"></br>
     <input type="submit" value="Upload">
     </form>'''
 
 
 def train(idx):
     ## Carregando imagem para treinamento
-    face = face_recognition.load_image_file(str(idx)+".jpg")
+    face = face_recognition.load_image_file("faces/"+str(idx)+".jpg")
     face_encoding = face_recognition.face_encodings(face)[0]
     f = open("weights/"+str(idx)+".txt", "a+")
     for weight in face_encoding:
         f.write(str(weight)+"\n")
+    f.close()
 
 def save_input(img, nome):
     idx = id_generator()
     ## Salvando a imagem localmente para posterior consulta
-    img.save(str(idx)+".jpg")
+    img.save("faces/"+str(idx)+".jpg")
     ## Treinando a rede para obter os pesos faciais de reconhecimento
     train(idx)
     ## Criando o json de dados usuario com os detalhes do input
