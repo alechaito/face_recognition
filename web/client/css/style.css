@@ -1,0 +1,31 @@
+body {
+  background-color: #fafafa; }
+
+.navbar-style {
+  background-color: #fff;
+  box-shadow: 0 3px 2px -2px rgba(200, 200, 200, 0.15);
+  border-bottom: 1px solid #e5e5e5; }
+
+a.navbar-brand > img {
+  width: 165px; }
+
+a.nav-link {
+  color: #4a4e57;
+  border-bottom-color: #4285f4;
+  border-bottom: 2px solid transparent;
+  border-top: 2px solid transparent; }
+
+section#signup {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 25px;
+  background-color: #fff;
+  width: 50%;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid #e5e5e5;
+  border-radius: 5px; }
+
+@media screen and (max-width: 830px) {
+  section#signup {
+    width: 95%; } }

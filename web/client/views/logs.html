@@ -1,0 +1,27 @@
+<div ng-controller='LogsController as Logs'>
+
+    <form class="form-inline my-2 my-lg-0" style="padding: 3px;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Filtrar" aria-label="Search" ng-model="search">
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
+    <section id="registros">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Matrícula</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Hora</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr ng-repeat="log in Logs.logs | filter: search">
+                    <td>{{log.nome}}</td>
+                    <td>{{log.matricula}}</td>
+                    <td>{{log.data}}</td>
+                    <td>{{log.hora}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</div>
