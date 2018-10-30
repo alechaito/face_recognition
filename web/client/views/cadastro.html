@@ -1,0 +1,26 @@
+<section id="signup">
+    <h3 style="text-align:center">Cadastro</h3>
+    <form ng-submit="submit()">
+        <div class="form-group">
+            <label for="inputName1">Nome</label>
+            <input type="text" class="form-control" id="inputName" ng-model="nome" aria-describedby="nameHelp" placeholder="Nome">
+        </div>
+        <div class="form-group">
+            <label for="inputMatricula1">Matrícula</label>
+            <input type="text" class="form-control" id="inputMatricula" ng-model="matricula" aria-describedby="matriculaHelp" placeholder="Matrícula">
+        </div>
+        <div class="form-group">
+            <label for="inputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail" ng-model="email" aria-describedby="emailHelp" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="inputPassword1">Password</label>
+            <input type="password" class="form-control" id="inputPassword" ng-model="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="formControlFile1">Carregar imagens facial</label>
+            <input type="file" class="form-control-file" id="formControlFile1" ng-model="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    </form>
+</section>
