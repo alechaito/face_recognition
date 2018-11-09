@@ -72,11 +72,9 @@ def main():
 
                 # If a match was found in known_face_encodings, just use the first one.
                 if True in matches:
-                    N += 1
-                    if(N == 4):
-                        first_match_index = matches.index(True)
-                        name = known_face_names[first_match_index]
-                        print("ta liberado"+name)
+                    first_match_index = matches.index(True)
+                    name = known_face_names[first_match_index]
+               	    print("\nta liberado "+name)
                 face_names.append(name)
 
         process_this_frame = not process_this_frame
