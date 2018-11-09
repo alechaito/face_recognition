@@ -1,33 +1,31 @@
 import face_recognition
 import cv2
-import MySQLdb as mysql
+import mysql.connector as mysql
 import numpy as np
-import urllib, json
+import urllib.request, json
 
 class User:
-    def __init__(self, params):
-        self.id      = params[0]
-        self.name    = params[1]
-        self.img     = params[2]
-        self.weights = params[3]
+    def __init__(self, params=None):
+        self.id = params[0] # id
+        self.name = params[1] #name
+        self.image = params[2] # img
+        self.weights = params[3] # weights
+
 
 def get_data():
-    db = mysql.connect(host="localhost", user="root", passwd="252528", db="ubiquos")
-    cursor = db.cursor()
-    query = ("SELECT * FROM users")
-    cursor.execute(query, )
-    users = cursor.fetchall()
-    data = []
-    for user in users:
-        data.append(User(user))
-    cursor.close()
-    return data
+    url = 'http://localhost:5000/users/'
+    response = urllib.request.urlopen(url)
+    data = json.loads(response.read())
+    result = list(map(json.loads, data))
+    
+    return result
 
 def load_weights(data):
     weights = []
     for user in data:
-        url = 'http://localhost:5000/weight/'+user.weights
-        response = urllib.urlopen(url)
+       # print(json.loads(user['weights']))
+        url = 'http://localhost:5000/weight/'+str( (user)['weights'])
+        response = urllib.request.urlopen(url)
         data = json.loads(response.read())
         weights.append(np.array(data))
     return np.array(weights)
@@ -42,7 +40,7 @@ def main():
     known_face_names = [
     ]
     for user in users:
-        known_face_names.append(user.name)
+        known_face_names.append(user['name'])
     
     # Initialize some variables
     face_locations = []
@@ -69,7 +67,7 @@ def main():
             face_names = []
             for face_encoding in face_encodings:
                 # See if the face is a match for the known face(s)
-                matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+                matches = face_recognition.compare_faces(known_face_encodings, face_encoding, tolerance=0.5)
                 name = "Unknown"
 
                 # If a match was found in known_face_encodings, just use the first one.

@@ -1,8 +1,8 @@
 import face_recognition
-from flask import Flask, jsonify, request, redirect
+from flask import Flask, jsonify, request, redirect, json
 import string
 import random
-import MySQLdb as mysql
+import mysql.connector as mysql
 
 # You can change this to any folder on your system
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
@@ -12,8 +12,10 @@ app = Flask(__name__)
 
 class User:
     def __init__(self, params=None):
-        self.name = params['name']
-        self.image = params['image']
+        self.id = params[0] # id
+        self.name = params[1] #name
+        self.image = params[2] # img
+        self.weights = params[3] # weights
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -26,6 +28,20 @@ def get_weight(idx):
     for line in f:
         buffer.append(float(line.rstrip()))
     return jsonify(buffer)
+
+@app.route('/users/', methods=['GET'])
+def get_users():
+    db = mysql.connect(host="localhost", user="root", passwd="252528", db="ubiquos")
+    cursor = db.cursor()
+    query = ("SELECT * FROM users")
+    cursor.execute(query)
+    users = cursor.fetchall()
+    data = []
+    for user in users:
+        print(user)
+        data.append(json.dumps(User(user).__dict__))
+    cursor.close()
+    return jsonify(data)
 
 @app.route('/adduser', methods=['GET', 'POST'])
 def upload_image():
