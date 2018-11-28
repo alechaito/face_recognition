@@ -21,7 +21,6 @@ To be able to use, you'll need install the following programs
 * NumPy
 
 
-
 ### Installing
 
 The guide is based for linux system but should be able to install on windows machines with proper adjustments and installers.
@@ -30,3 +29,55 @@ If you don't have python 2.7 installed, run the following command to install bot
 ```
 sudo apt install python2.7 python-pip
 ```
+
+To install Flask, simply write the follow command with pip
+```
+pip install Flask
+```
+
+For Angular visit the page and select the best suited option
+```
+https://angularjs.org/
+```
+
+For face_recognition visit [ageitgey tutorial page](https://gist.github.com/ageitgey/1ac8dbe8572f3f533df6269dab35df65) for walk through on how to install on Raspberry.
+
+For MySQL-Python run the two commands following the order
+```
+sudo apt install default-libmysqlclient-dev
+
+pip install MySQL-python
+```
+
+The last step to run is the following three commands that will take care of opencv and numpy
+
+[compiler] 
+```
+sudo apt-get install build-essential
+```
+[required] 
+```
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+```
+[required] 
+```
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+```
+
+## Contributing
+
+The authors to this date do not intend to continue the project, any questions are welcome and will be answered as soon as possible.
+
+
+## Authors
+
+* **Ale Chaito** - [alechaito](https://github.com/alechaito)
+* **Luan Lorenzo** - [luanr](https://github.com/luanr)
+* **Luan Rodrigues** - [luanlorenzo](https://github.com/luanlorenzo)
+* **Gabriel Domene** - [gabrieldomene](https://github.com/gabrieldomene)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
