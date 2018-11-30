@@ -1,8 +1,26 @@
 # User registration and authentication system using facial recognition with web interface
 
-This project is proposed for the subject 'Ubiquitous Systems Projects' as the final semester work, the idea behind is to achieve a reasonable implementation of a web interface and embedded system based on raspberry pi for face recognition and release access.
+## Introduction
+
+## Proposal
+
+This project is proposed for the subject 'Ubiquitous Systems Projects' as the final semester work, the idea behind is to work with modern technologys, that can help develop new skills and achieve a reasonable physical implementation. Currently the embedded systems are present in the most diverse application areas. Combined with the concept of distributed systems, systems are developed that solve problems and automate processes, making life easier for people.
 
 <img src="schema.png" width="500">
+
+## Justification
+
+The defined project was chosen aiming to propose a safe and efficient alternative of access control, being able to be applied in several contexts. An example would be a point system of a company, which from the facial recognition, records the time of entry and exit of the employee, and can be checked later by managers. Another scenario would be a presence control in universities and schools.
+
+## Goal
+
+This project has as its final objective to obtain a functional prototype of the access control system. Specific objectives can be listed as follows: 
+
+• Obtain an efficient and secure facial recognition system that recognizes the face of a person in a given time interval and minimizes possible errors 
+
+• Create a reliable communication between the different nodes of the system; 
+
+• Provide a web system with a user-friendly interface that presents data consistent with the readings;
 
 ## Getting Started
 
