@@ -2,15 +2,26 @@
 
 This project is proposed for the subject 'Ubiquitous Systems Projects' as the final semester work, the idea behind is to achieve a reasonable implementation of a web interface and embedded system based on raspberry pi for face recognition and release access.
 
+<img src="schema.png" width="500">
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 These project is not in any means made for production or to be used in critical system, this is only for academic purposes and experience.The guide below will lead you to the installation for development testing, examples and a brief FAQ of the project.
 
+## Components
+
+Here you can see what are used on the project, some components as raspberry need to be the same (in order to work the instructions) but the server can be a linux or a windows hosting the application, the same goes for the webcam, any model with USB should do the work.
+
+* Raspberry Pi 2
+* Server to run
+* Webcam
+* Relay (to simulate the opening)
+
 ### Prerequisites
 
-To be able to use, you'll need install the following programs
+These are what you need to be able to use, you'll need install the following programs on the raspberry and server.
 
 * Python 2.7
 * Flask
